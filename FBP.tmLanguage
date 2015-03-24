@@ -29,74 +29,31 @@
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.outport.name.fbp</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Component outport</string>
-			<key>match</key>
-			<string>\b(\w+) ([A-Z0-9]+)\b</string>
-			<key>name</key>
-			<string>variable.component.outport.fbp</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.inport.name.fbp</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Component inport</string>
-			<key>match</key>
-			<string>\b([A-Z0-9]+) (\w+)\b</string>
-			<key>name</key>
-			<string>variable.component.inport.fbp</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.inport.name.fbp</string>
+					<string>entity.name.function.port.fbp</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.type.fbp</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Component inport with class</string>
-			<key>match</key>
-			<string>\b([A-Z0-9]+)(\(.+\)) (\w+)\b</string>
-			<key>name</key>
-			<string>variable.expression.fbp</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>support.type.fbp</string>
+					<string>variable.component.fbp</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.inport.name.fbp</string>
+					<string>variable.parameter.fbp</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.port.fbp</string>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>Component outport with class</string>
+			<string>Component with port on the left (optionally on the right too)</string>
 			<key>match</key>
-			<string>\b(\w+)(\(.+\)) ([A-Z0-9]+)\b</string>
+			<string>([A-Z0-9]+) (\w+)(\([\w\/\.\-]+\))?(?: ([A-Z0-9]+))?</string>
 			<key>name</key>
 			<string>variable.expression.fbp</string>
 		</dict>
@@ -106,25 +63,30 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.type.begin.fbp</string>
+					<string>entity.name.function.port.fbp</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.type.fbp</string>
+					<string>variable.component.fbp</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.type.end.fbp</string>
+					<string>variable.parameter.fbp</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.port.fbp</string>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>Component</string>
+			<string>Component with port on the right (optionally on the left too)</string>
 			<key>match</key>
-			<string>(\()(.+)(\))</string>
+			<string>(?:([A-Z0-9]+) )?(\w+)(\([\w\/\.\-]+\))? ([A-Z0-9]+)</string>
 			<key>name</key>
-			<string>variable.expression.component.fbp</string>
+			<string>variable.expression.fbp</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -140,43 +102,43 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.extport.inport.fbp</string>
+					<string>constant.language.fbp</string>
 				</dict>
-				<key>4</key>
+				<key>2</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.declaration.fbp</string>
 				</dict>
-				<key>5</key>
+				<key>3</key>
 				<dict>
 					<key>name</key>
 					<string>variable.component.fbp</string>
 				</dict>
-				<key>6</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.access.fbp</string>
 				</dict>
-				<key>7</key>
+				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.inport.name.fbp</string>
+					<string>entity.name.function.port.fbp</string>
 				</dict>
-				<key>8</key>
+				<key>6</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.naming.fbp</string>
 				</dict>
-				<key>9</key>
+				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.inport.name.fbp</string>
+					<string>entity.name.fbp</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>External port declaration</string>
 			<key>match</key>
-			<string>((IN|OUT)PORT)(=)(\w+)(\.)([A-Z0-9]+)(:)([A-Z0-9]+)</string>
+			<string>((?:IN|OUT|EX)PORT)(=)(\w+)(\.)([A-Z0-9]+)(:)([A-Z0-9]+)</string>
 			<key>name</key>
 			<string>variable.expression.graph.inport.fbp</string>
 		</dict>

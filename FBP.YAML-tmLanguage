@@ -12,62 +12,48 @@ patterns:
 - match: "->"
   name: "keyword.operator.connection.fbp"
   comment: "Operator"
-- match: "\\b(\\w+) ([A-Z0-9]+)\\b"
-  name: "variable.component.outport.fbp"
-  captures:
-    "2":
-      name: "keyword.outport.name.fbp"
-  comment: "Component outport"
-- match: "\\b([A-Z0-9]+) (\\w+)\\b"
-  name: "variable.component.inport.fbp"
-  captures:
-    "1":
-      name: "keyword.inport.name.fbp"
-  comment: "Component inport"
-- match: "\\b([A-Z0-9]+)(\\(.+\\)) (\\w+)\\b"
+- match: "([A-Z0-9]+) (\\w+)(\\([\\w\\/\\.\\-]+\\))?(?: ([A-Z0-9]+))?"
   name: "variable.expression.fbp"
   captures:
     "1":
-      name: "keyword.inport.name.fbp"
+      name: "entity.name.function.port.fbp"
     "2":
-      name: "support.type.fbp"
-  comment: "Component inport with class"
-- match: "\\b(\\w+)(\\(.+\\)) ([A-Z0-9]+)\\b"
+      name: "variable.component.fbp"
+    "3":
+      name: "variable.parameter.fbp"
+    "4":
+      name: "entity.name.function.port.fbp"
+  comment: "Component with port on the left (optionally on the right too)"
+- match: "(?:([A-Z0-9]+) )?(\\w+)(\\([\\w\\/\\.\\-]+\\))? ([A-Z0-9]+)"
   name: "variable.expression.fbp"
   captures:
-    "2":
-      name: "support.type.fbp"
-    "3":
-      name: "keyword.inport.name.fbp"
-  comment: "Component outport with class"
-- match: "(\\()(.+)(\\))"
-  name: "variable.expression.component.fbp"
-  captures:
     "1":
-      name: "punctuation.definition.type.begin.fbp"
+      name: "entity.name.function.port.fbp"
     "2":
-      name: "support.type.fbp"
+      name: "variable.component.fbp"
     "3":
-      name: "punctuation.definition.type.end.fbp"
-  comment: "Component"
+      name: "variable.parameter.fbp"
+    "4":
+      name: "entity.name.function.port.fbp"
+  comment: "Component with port on the right (optionally on the left too)"
 - match: "#.*"
   name: "comment.source.fbp"
   comment: "Comment"
-- match: "((IN|OUT)PORT)(=)(\\w+)(\\.)([A-Z0-9]+)(:)([A-Z0-9]+)"
+- match: "((?:IN|OUT|EX)PORT)(=)(\\w+)(\\.)([A-Z0-9]+)(:)([A-Z0-9]+)"
   name: "variable.expression.graph.inport.fbp"
   captures:
     "1":
-      name: "keyword.extport.inport.fbp"
-    "4":
+      name: "constant.language.fbp"
+    "2":
       name: "keyword.operator.declaration.fbp"
-    "5":
+    "3":
       name: "variable.component.fbp"
-    "6":
+    "4":
       name: "keyword.operator.access.fbp"
-    "7":
-      name: "keyword.inport.name.fbp"
-    "8":
+    "5":
+      name: "entity.name.function.port.fbp"
+    "6":
       name: "keyword.operator.naming.fbp"
-    "9":
-      name: "keyword.inport.name.fbp"
+    "7":
+      name: "entity.name.fbp"
   comment: "External port declaration"
